@@ -25,9 +25,12 @@ TOKENIZER_CONFIG_FILE = "tokenizer_config.json"
 FULL_TOKENIZER_FILE = "tokenizer.json"
 
 VOCAB_FILES_NAMES = {"vocab_file": "vocab.txt"}
+# Honor HF_ENDPOINT so the vocab file can be fetched from a mirror when
+# huggingface.co is unreachable (see utils.HF_ENDPOINT).
+_HF_ENDPOINT = os.getenv("HF_ENDPOINT", "https://huggingface.co").rstrip("/")
 PRETRAINED_VOCAB_FILES_MAP = {
     "vocab_file": {
-        "bert-base-uncased": "https://huggingface.co/bert-base-uncased/resolve/main/vocab.txt"
+        "bert-base-uncased": _HF_ENDPOINT + "/bert-base-uncased/resolve/main/vocab.txt"
     }
 }
 PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES = {

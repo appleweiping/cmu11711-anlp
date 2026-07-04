@@ -1,0 +1,12 @@
+# minBERT (CMU 11-711 Advanced NLP, Assignment 1) — runtime dependencies.
+# Verified with the shared csdiy env (Python 3.11, CPU-only torch).
+# The original assignment pins torch 1.8 / py3.8; the implementation is
+# version-agnostic and runs unchanged on modern torch (2.x) as used here.
+torch>=2.0
+numpy>=1.24
+scikit-learn>=1.2
+tqdm>=4.58
+tokenizers>=0.10
+requests>=2.25
+filelock>=3.0
+importlib-metadata>=3.7

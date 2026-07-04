@@ -2,6 +2,7 @@ from typing import Dict, List, Optional, Union, Tuple, BinaryIO
 import os
 import sys
 import json
+import fnmatch
 import tempfile
 import copy
 from tqdm.auto import tqdm
@@ -29,7 +30,11 @@ PRESET_MIRROR_DICT = {
     "tuna": "https://mirrors.tuna.tsinghua.edu.cn/hugging-face-models",
     "bfsu": "https://mirrors.bfsu.edu.cn/hugging-face-models",
 }
-HUGGINGFACE_CO_PREFIX = "https://huggingface.co/{model_id}/resolve/{revision}/{filename}"
+# Honor the standard HF_ENDPOINT env var so this repo can run behind a mirror
+# (e.g. https://hf-mirror.com) when huggingface.co is unreliable/blocked. The
+# canonical default is unchanged.
+HF_ENDPOINT = os.getenv("HF_ENDPOINT", "https://huggingface.co").rstrip("/")
+HUGGINGFACE_CO_PREFIX = HF_ENDPOINT + "/{model_id}/resolve/{revision}/{filename}"
 WEIGHTS_NAME = "pytorch_model.bin"
 CONFIG_NAME = "config.json"
 

@@ -26,5 +26,8 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Keep the multitask GLUE-style data out of git if downloaded at runtime
-# (SST / CFIMDB are small and bundled by the official skeleton, so they stay)
+# Multitask data (SST-ids / Quora / STS) is downloaded at runtime by
+# download_multitask_data.py and is large (quora-train.csv is ~22 MB), so the
+# CSV splits are kept out of git. The small bundled SST/CFIMDB .txt splits from
+# the official skeleton stay tracked.
+data/*.csv

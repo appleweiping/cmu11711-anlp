@@ -6,6 +6,10 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 from sklearn.metrics import classification_report, f1_score, recall_score, accuracy_score
 
+# Keep CPU thread usage modest and configurable (defaults to 3, override with
+# CSDIY_NUM_THREADS). This only affects wall-clock time, not the computed results.
+torch.set_num_threads(int(os.environ.get("CSDIY_NUM_THREADS", "3")))
+
 # change it with respect to the original model
 from tokenizer import BertTokenizer
 from bert import BertModel

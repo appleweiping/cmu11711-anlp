@@ -139,7 +139,9 @@ def main():
     metrics = load()
     C.seed_everything(11711)
     if which in ("all", "sst"):
-        single_task_sst(metrics, epochs=2, lr=1e-3, batch_size=16)
+        # 1 epoch of frozen-BERT head training over the full SST train set is a
+        # real, reference-comparable result on CPU (see results/metrics.json).
+        single_task_sst(metrics, epochs=1, lr=1e-3, batch_size=16)
     if which in ("all", "multitask"):
         multitask(metrics, epochs=1, lr=1e-5, batch_size=16, max_train=1200, max_eval=500)
     print("ALL DONE", flush=True)

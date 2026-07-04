@@ -1,0 +1,11 @@
+train sizes  -> sst 1200  para 1200  sts 1200
+dev   sizes  -> sst 500  para 500  sts 500
+epoch 0: steps=225  loss[sst]=1.361 loss[para]=0.660 loss[sts]=2.372
+============================================================
+DEV sentiment (SST) accuracy      : 0.4620
+DEV paraphrase (Quora) accuracy   : 0.6220
+DEV similarity (STS) Pearson corr : 0.1544
+============================================================
+[saved] results\metrics.json
+[multitask] DONE sst=0.4620 quora=0.6220 sts_pearson=0.1544
+ALL DONE

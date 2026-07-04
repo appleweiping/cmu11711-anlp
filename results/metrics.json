@@ -1,0 +1,30 @@
+{
+  "sst_single_task_pretrain": {
+    "task": "SST-5 sentiment (single task)",
+    "option": "pretrain (frozen BERT + linear head)",
+    "epochs_done": 1,
+    "epochs_total": 1,
+    "lr": 0.001,
+    "batch_size": 16,
+    "train_size": 8544,
+    "dev_size": 1101,
+    "dev_acc": 0.3869,
+    "best_dev_acc": 0.3869,
+    "dev_macro_f1": 0.2501,
+    "wall_clock_sec": 2553.0,
+    "note": "1 epoch over the full SST train set; frozen bert-base-uncased, only the linear head is trained. Machine was under heavy CPU contention from concurrent jobs (~2553s/epoch)."
+  },
+  "multitask_finetune": {
+    "tasks": "SST sentiment + Quora paraphrase + STS similarity",
+    "option": "finetune (shared BERT encoder updated)",
+    "epochs": 1,
+    "lr": 1e-05,
+    "batch_size": 16,
+    "max_train_per_task": 1200,
+    "max_eval_per_task": 500,
+    "sst_dev_acc": 0.462,
+    "quora_dev_acc": 0.622,
+    "sts_dev_pearson": 0.1544,
+    "wall_clock_sec": 2364.0
+  }
+}

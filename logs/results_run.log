@@ -1,0 +1,4 @@
+load 8544 data from data/sst-train.txt
+load 1101 data from data/sst-dev.txt
+[sst_pretrain] epoch 0: loss=1.588 dev_acc=0.3869 dev_f1=0.2501 (2553s)
+[saved] results\metrics.json
